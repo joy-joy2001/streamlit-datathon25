@@ -63,9 +63,9 @@ st.latex(r''' a+a r^1+a r^2+a r^3 ''')
 # )
 
 st.subheader("Rainbow graph")
-df3 =  pd.DataFrame({'x': np.random.randn(100),
-                        'y': np.random.randn(100), 
-                        'z':np.random.randn(100)})
+df3 =  pd.DataFrame({'x': np.random.uniform(size=100),
+                        'y': np.random.uniform(size=100), 
+                        'z':np.random.uniform(size=100)})
 
 xyz_colors = [f'rgba({int(r*255)}, {int(g*255)}, {int(b*255)}, 1)' for r, g, b in zip(df3['x'], df3['y'], df3['z'])]
 
