@@ -62,21 +62,34 @@ st.latex(r''' a+a r^1+a r^2+a r^3 ''')
 #     color=["#FF0000", "#0000FF"],  # Optional
 # )
 
-st.subheader("Rainbow graph")
-df3 =  pd.DataFrame({'x': np.random.uniform(size=100),
-                        'y': np.random.uniform(size=100), 
-                        'z':np.random.uniform(size=100)})
+# Sidebar for file upload
+st.sidebar.title("Add Data")
+df = pd.read_csv('train.csv')
+st.dataframe(df[['gene_id', 'AE0', 'AE1']])
 
-xyz_colors = [f'rgba({int(r*255)}, {int(g*255)}, {int(b*255)}, 1)' for r, g, b in zip(df3['x'], df3['y'], df3['z'])]
+# uploaded_file = st.sidebar.file_uploader("Upload a file", type=["csv"])
+# st.subheader("Results")
 
-# Create a 2D scatter plot
-fig = px.scatter(
-    df3,
-    x='x',
-    y='y',
-    color=xyz_colors,
-    size='z',
-    hover_data=['z']
-)
-event = st.plotly_chart(fig, on_select="rerun")
-event.selection
+# if uploaded_file is not None:
+#     df = pd.read_csv(uploaded_file)
+#     x = df['AE0']
+#     y = df['AE1']
+
+#     # xyz_colors = [f'rgba({int(r*255)}, {int(g*255)}, {int(b*255)}, 1)' for r, g, b in zip(df3['x'], df3['y'], df3['z'])]
+
+#     # Create a 2D scatter plot
+#     fig = px.scatter(
+#         df,
+#         x=x,
+#         y=y,
+#         hover_data=['gene_id']
+#     )
+#     event = st.plotly_chart(fig, on_select="rerun")
+#     # Read the uploaded file as a Pandas DataFrame
+    
+
+#     # Display the DataFrame on the main page
+#     st.dataframe(df[['gene_id', 'AE0', 'AE1']])
+
+
+    
